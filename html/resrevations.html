@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hot Restaurant</title>
+  <!-- Bootstrap CSS CDN  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <!-- Font Awesome CSS Icons (For cool glyphicons) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <!-- Style to fix the issue of text extending past card length -->
+  <style>
+    .card-body a {
+      word-break: break-all;
+    }
+
+    .articleHeadline {
+      line-height: 1.5;
+    }
+
+    .butt {
+      text-align: center;
+    }
+
+    h1,
+    h2 {
+      color: black;
+      text-align: center;
+    }
+
+    #run-search {
+      background-color: blue;
+      color: white;
+    }
+
+    #clear-all {
+      background-color: red;
+      color: white;
+    }
+
+    a {
+      color: white;
+    }
+  </style>
+  <script>
+    $(document).ready(function () {
+      $("#submit").on("click", function (event) {
+        event.preventDefault();
+        var newCustomer = {
+          name: $("#name").val(),
+          phone: $("#phone").val(),
+          email: $("#email").val(),
+          unique: $("#unique").val()
+        };
+
+        console.log(newCustomer);
+        // Question: What does this code do??
+        $.post("/api/tables", newCustomer)
+          .then(function (data) {
+            console.log("html/resrevations.html", data);
+            alert("Adding customer...");
+          });
+      });
+    });
+  </script>
+</head>
+
+<body>
+
+  <!-- Main Bootstrap Search -->
+  <div class="container">
+
+    <div class="jumbotron">
+      <h1><i class="fas fa-fire"></i> Hot Restaurant</strong></h1>
+
+      <h2 class="text-center">Make your reservation</h2>
+      <br>
+      <!-- Here we have our final submit button -->
+      <div class="butt">
+        <button type="submit" class="btn btn-default" id="run-search">
+          <a href="/tables"><i class="fas fa-clipboard-list"></i> View Tables</button></a>
+        <button class="btn btn-default" id="clear-all">
+          <a href="/"><i class="fas fa-home"></i></button></a>
+      </div>
+
+    </div>
+
+    <!-- Main Bootstrap Search -->
+    <div class="container">
+
+      <!-- Jumbotron for Title -->
+
+
+      <!-- Row for Searching New York Times -->
+      <div class="row">
+        <div class="col-sm-12">
+          <br>
+          <!-- First card is for handling the search parameters -->
+          <div class="card">
+            <div class="card-header">
+              <strong>
+                Table Reservations</strong>
+            </div>
+            <div class="card-body">
+
+              <!-- Here we create an HTML Form for handling the inputs-->
+              <form role="form">
+
+                <!-- Here we create the text box for capturing the search term-->
+                <div class="form-group">
+                  <label for="search">Name</label>
+                  <input type="text" class="form-control" id="name">
+                </div>
+
+                <!-- Here we capture the number of records that the user wants to retrieve  -->
+                <div class="form-group">
+                  <label for="pwd">Phone Number</label>
+                  <input id="text" class="custom-select" id="phone">
+
+                  </input>
+                </div>
+
+                <!-- Here we capture the Start Year Parameter-->
+                <div class="form-group">
+                  <label for="start-year">Email</label>
+                  <input type="text" class="form-control" id="email">
+                </div>
+
+                <!-- Here we capture the End Year Parameter -->
+                <div class="form-group">
+                  <label for="end-year">Unique ID</label>
+                  <input type="text" class="form-control" id="unique">
+                </div>
+
+                <!-- Here we have our final submit button -->
+                <button type="submit" class="btn btn-default" id="submit">
+                  <i class="fa fa-search"></i> Submit</button>
+
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- This row will handle all of the retrieved articles -->
+      <div class="row">
+        <div class="col-sm-12">
+          <br>
+
+          <!-- This card will initially be made up of a card and wells for each of the articles retrieved -->
+
+        </div>
+      </div>
+
+      <!-- Footer Region -->
+      <div class="row">
+        <div class="col-sm-12">
+
+          <!-- Line Break followed by closing -->
+          <hr>
+          <h5 class="text-center">
+            <small>Made with lots and lots of
+              <i class="fa fa-heart"></i>
+            </small>
+          </h5>
+
+        </div>
+      </div>
+
+      <!-- Footer Region -->
+      <div class="row">
+        <div class="col-sm-12">
+
+          <!-- Line Break followed by closing -->
+          <hr>
+          <h5 class="text-center">
+            <small>Made with lots and lots of
+              <i class="fa fa-heart"></i>
+            </small>
+          </h5>
+
+        </div>
+      </div>
+
+    </div>
+
+</body>
+
+</html>

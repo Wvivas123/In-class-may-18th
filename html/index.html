@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hot Restaurant</title>
+    <!-- Bootstrap CSS CDN  -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+
+    <!-- Font Awesome CSS Icons (For cool glyphicons) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!-- Style to fix the issue of text extending past card length -->
+    <style>
+        .card-body a {
+            word-break: break-all;
+        }
+
+        .articleHeadline {
+            line-height: 1.5;
+        }
+
+        .butt {
+            text-align: center;
+        }
+
+        h1,
+        h2 {
+            color: black;
+            text-align: center;
+        }
+
+        #run-search {
+            background-color: blue;
+            color: white;
+        }
+
+        #clear-all {
+            background-color: red;
+            color: white;
+        }
+        a {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Main Bootstrap Search -->
+    <div class="container">
+
+        <!-- Jumbotron for Title -->
+        <div class="jumbotron" style="background-color: rgb(199, 196, 196) ; color: white;">
+            <h1 class="text-center">
+                <strong>
+                    <i class="fas fa-fire"></i> Hot Restaurant</strong>
+            </h1>
+            <h2>We only have 5 tables! Book your seat before they all are gone!</h2>
+            <!-- Here we have our final submit button -->
+            <div class="butt">
+                <button type="submit" class="btn btn-default" id="run-search">
+                    <a href="/tables" ><i class="fas fa-clipboard-list"></i> View Tables</button></a>
+                <button class="btn btn-default" id="clear-all">
+                    <a href="/reserve" ><i class="fas fa-archive"></i> Make Reservation</button></a>
+            </div>
+
+        </div>
+
+        <!-- jQuery JS -->
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Code to the JavaScript File -->
+        <script src="NYTCode.js"></script>
+
+</body>
+
+</html> 
